@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signifiya Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #222;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            max-width: 400px;
+            margin-top: 80px;
+            width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ffc3;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #333;
+            color: #f1f1f1;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #00ffc3;
+            color: #111;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00cba0;
+        }
+
+        .view-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .view-link a {
+            color: #00ffc3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .view-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Signifiya 2025</h1>
+
+    <form action="/send" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+
+        <label for="regno">Registration Number</label>
+        <input type="text" name="regno" placeholder="e.g. BCA2025XX" required>
+
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" placeholder="e.g. 9876543210" required>
+
+        <label for="event">Event You're Interested In</label>
+        <select name="event" required>
+            <option value="" disabled selected>Select an event</option>
+            <option value="Hackathon">Hackathon</option>
+            <option value="Coding Contest">Coding Contest</option>
+            <option value="Robotics">Robotics</option>
+            <option value="Tech Quiz">Tech Quiz</option>
+            <option value="UI/UX Design">UI/UX Design</option>
+            <option value="Paper Presentation">Paper Presentation</option>
+        </select>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <div class="view-link">
+        <p>Already registered? <a href="/display">View Data</a></p>
+    </div>
+</div>
+
+</body>
+</html>
