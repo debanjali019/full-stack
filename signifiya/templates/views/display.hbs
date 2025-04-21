@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered Participants</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #1f1f1f;
+            color: #f1f1f1;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00ffc3;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 255, 195, 0.1);
+        }
+
+        .card form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card input[type="text"],
+        .card input[type="email"],
+        .card input[type="tel"] {
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+            background-color: #444;
+            color: white;
+        }
+
+        .card input[type="submit"] {
+            background-color: #00ffc3;
+            color: #111;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .card input[type="submit"]:hover {
+            background-color: #00c9a7;
+        }
+
+        .delete-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            background-color: crimson;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .delete-link:hover {
+            background-color: darkred;
+        }
+
+        hr {
+            border: 1px solid #333;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Registered Participants</h1>
+
+{{#each data}}
+    <div class="card">
+        <form action="/update/{{this._id}}" method="POST">
+            <input type="text" name="name" value="{{this.name}}" required>
+            <input type="text" name="regno" value="{{this.regno}}" required>
+            <input type="email" name="email" value="{{this.email}}" required>
+            <input type="tel" name="phone" value="{{this.phone}}" required>
+            <input type="text" name="event" value="{{this.event}}" required>
+            <input type="submit" value="Update">
+        </form>
+
+        <a class="delete-link" href="/delete/{{this._id}}" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+    </div>
+    <hr>
+{{/each}}
+
+</body>
+</html>
